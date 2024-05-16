@@ -6,6 +6,8 @@ import myUserRoute from "./routes/myUserRoute";
 import myVehicleRoute from "./routes/myVehicleRoute";
 import contactRoute from "./routes/contactRoute";
 
+const port = process.env.PORT || 4000;
+
 mongoose
   .connect(process.env.MONGODB_CONNECTION_STRING as string)
   .then(() => console.log("Connected to database!"));
@@ -25,6 +27,6 @@ app.use("/api/my/vehicle", myVehicleRoute);
 
 app.use("/api/contact", contactRoute);
 
-app.listen(3000, () => {
-  console.log("server started on localhost:3000");
+app.listen(port, () => {
+  console.log(`server started on ${port}`);
 });
