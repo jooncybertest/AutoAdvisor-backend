@@ -5,8 +5,9 @@ import mongoose from "mongoose";
 import myUserRoute from "./routes/myUserRoute";
 import myVehicleRoute from "./routes/myVehicleRoute";
 import contactRoute from "./routes/contactRoute";
+import stripeRoute from "./routes/stripeRoute";
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT;
 
 mongoose
   .connect(process.env.MONGODB_CONNECTION_STRING as string)
@@ -26,6 +27,8 @@ app.use("/api/my/user", myUserRoute);
 app.use("/api/my/vehicle", myVehicleRoute);
 
 app.use("/api/contact", contactRoute);
+
+app.use("/api/create-checkout-session", stripeRoute);
 
 app.listen(port, () => {
   console.log(`server started on ${port}`);
