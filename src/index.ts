@@ -6,6 +6,7 @@ import myUserRoute from "./routes/myUserRoute";
 import myVehicleRoute from "./routes/myVehicleRoute";
 import contactRoute from "./routes/contactRoute";
 import stripeRoute from "./routes/stripeRoute";
+import myUserPhotoRoute from "./routes/myUserPhotoRoute";
 
 const port = process.env.PORT;
 
@@ -29,6 +30,8 @@ app.use("/api/my/vehicle", myVehicleRoute);
 app.use("/api/contact", contactRoute);
 
 app.use("/api/create-checkout-session", stripeRoute);
+
+app.use("/api/my/user/photo", myUserPhotoRoute);
 
 app.listen(port, () => {
   console.log(`server started on ${port}`);
